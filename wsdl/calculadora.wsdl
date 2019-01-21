@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<definitions name="calculadoraServicio" 
+  targetNamespace="urn:calculadora"
+  xmlns:tns="urn:calculadora"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns="http://schemas.xmlsoap.org/wsdl/">
+ 
+  <message name="peticionCalculadora2">
+    <part name="valor1" type="xsd:float" />
+    <part name="valor2" type="xsd:float" />
+  </message>
+
+  <message name="peticionCalculadora1">
+    <part name="valor1" type="xsd:float" />
+  </message>
+ 
+  <message name="respuestaCalculadora">
+    <part name="respuesta" type="xsd:float" />
+  </message>
+ 
+  <portType name="portCalculadora">
+    <operation name="suma">
+      <input message="tns:peticionCalculadora2" />
+      <output message="tns:respuestaCalculadora" />
+    </operation>
+    <operation name="resta">
+      <input message="tns:peticionCalculadora2" />
+      <output message="tns:respuestaCalculadora" />
+    </operation>
+    <operation name="multiplica">
+      <input message="tns:peticionCalculadora2" />
+      <output message="tns:respuestaCalculadora" />
+    </operation>
+    <operation name="divide">
+      <input message="tns:peticionCalculadora2" />
+      <output message="tns:respuestaCalculadora" />
+    </operation>
+    <operation name="raizCuadrada">
+      <input message="tns:peticionCalculadora1" />
+      <output message="tns:respuestaCalculadora" />
+    </operation>
+    <operation name="seno">
+      <input message="tns:peticionCalculadora1" />
+      <output message="tns:respuestaCalculadora" />
+    </operation>
+    <operation name="coseno">
+      <input message="tns:peticionCalculadora1" />
+      <output message="tns:respuestaCalculadora" />
+    </operation>
+    <operation name="tangente">
+      <input message="tns:peticionCalculadora1" />
+      <output message="tns:respuestaCalculadora" />
+    </operation>
+  </portType>
+ 
+  <binding name="bindingCalculadora" type="tns:portCalculadora">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="suma">
+        <soap:operation soapAction="urn:calculadora#suma" />
+        <input>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+    </operation>
+    <operation name="resta">
+        <soap:operation soapAction="urn:calculadora#resta" />
+        <input>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+    </operation>
+    <operation name="multiplica">
+        <soap:operation soapAction="urn:calculadora#multiplica" />
+        <input>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+    </operation>
+    <operation name="divide">
+        <soap:operation soapAction="urn:calculadora#divide" />
+        <input>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+    </operation>
+    <operation name="raizCuadrada">
+        <soap:operation soapAction="urn:calculadora#raizCuadrada" />
+        <input>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+    </operation>
+    <operation name="seno">
+        <soap:operation soapAction="urn:calculadora#seno" />
+        <input>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+    </operation>
+    <operation name="coseno">
+        <soap:operation soapAction="urn:calculadora#coseno" />
+        <input>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+    </operation>
+    <operation name="tangente">
+        <soap:operation soapAction="urn:calculadora#tangente" />
+        <input>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:calculadora"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+    </operation>
+  </binding>
+ 
+  <service name="calculadoraServicio">
+    <port name="portCalculadora" binding="tns:bindingCalculadora">
+      <soap:address location="http://127.0.0.1/calculadora/servidor/wsdl/servidor_endpoint.php" />
+    </port>
+  </service>
+
+</definitions>
